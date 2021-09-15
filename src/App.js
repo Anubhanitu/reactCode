@@ -1,33 +1,27 @@
-
+import React from "react";
 import './App.css';
-import axios from 'axios';
-import { useState,useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import First from "./First";
+import Second from "./Second";
 
-function App() {
-  const [info, setInfo] = useState([]);
-    useEffect(()=>
-   
-    {getinfo()},[]);
-  
-    const getinfo = () =>{
-    axios.get("https://gorest.co.in/public/v1/users").then(response=>{
-      console.log(response)
-      setInfo(response.data.data)
-    }
-    );
-
-  };
+const App = () => {
   return (
-    <div>
-      {info.map((inf)=> {
-      
-              return<li>{ inf.name}</li>}      
-      )}
- 
-      
-      
+    <Router>
+      <div> hi
+        <li>
+          <Link to='/'> First </Link>
+        </li>
+        <li>
+          <Link to='/Second'> Second </Link>
+        </li>
+
+        <Switch>
+          <Route exact path='/' component={First} />
+          <Route path='/second' component={Second} />
+          {/* <Route path='/' component={Error} /> */}
+        </Switch>
       </div>
-     
+    </Router>
   );
 }
 
