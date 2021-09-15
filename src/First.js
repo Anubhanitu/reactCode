@@ -4,6 +4,7 @@ const First = () => (
 
         <h1>Welcome to React</h1>
         <h1>Hello</h1>
+        <h1>React</h1>
     </div>
 
 );
